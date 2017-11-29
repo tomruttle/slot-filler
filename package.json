@@ -1,0 +1,68 @@
+{
+  "name": "slot-finder",
+  "version": "0.0.1",
+  "description": "Script for putting things in slots.",
+  "main": "es5/index.js",
+  "scripts": {
+    "coverage": "nyc mocha ./test/*.test.js",
+    "clean": "rimraf ./es5",
+    "compile": "babel lib -d es5",
+    "copy": "cp ./lib/index.js.flow ./es5",
+    "build": "npm run compile && npm run copy",
+    "ci": "npm run coverage && npm run clean && npm run build",
+    "watch": "babel lib -d es5 --watch",
+    "lint": "eslint --ext .js .",
+    "test": "mocha ./test/*.test.js",
+    "typecheck": "flow check",
+    "precommit": "npm run lint",
+    "prepush": "npm run coverage"
+  },
+  "files": [
+    "es5"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tomruttle/slot-finder.git"
+  },
+  "author": "Tom Ruttle <tom@tomruttle.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tomruttle/slot-finder/issues"
+  },
+  "homepage": "https://github.com/tomruttle/slot-finder#readme",
+  "nyc": {
+    "check-coverage": true,
+    "lines": 100,
+    "statements": 100,
+    "functions": 100,
+    "branches": 88,
+    "include": [
+      "lib/**"
+    ],
+    "reporter": [
+      "cobertura",
+      "html"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.1",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.26.0",
+    "chai": "^4.1.2",
+    "env-test": "^1.0.0",
+    "eslint": "^4.10.0",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-flowtype": "^2.39.1",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-mocha": "^4.11.0",
+    "flow-bin": "^0.59.0",
+    "husky": "^0.14.3",
+    "mocha": "^4.0.1",
+    "nyc": "^11.3.0",
+    "rimraf": "^2.6.2"
+  }
+}

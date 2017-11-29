@@ -1,0 +1,15 @@
+// @flow
+
+export type SlotNameType = string;
+export type ThingNameType = string;
+
+export type SlotsType = { [slot: SlotNameType]: any };
+
+export type ThingType = {
+  name: ThingNameType,
+  slots: Array<SlotNameType>,
+};
+
+export type ThingsType = Array<ThingType>;
+
+declare export default (slots: SlotsType, things: ThingsType) => { [slot: SlotNameType]: ThingNameType };
