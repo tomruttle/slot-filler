@@ -31,7 +31,7 @@ export default (slots: SlotsType, things: ThingsType) => { [slot: SlotNameType]:
 ```javascript
 import slotFinder from 'slot-finder';
 
-const slots = { left: null, right, null, center: null };
+const slots = { left: null, right: null, center: null };
 
 const things = [
   { name: 'first', slots: ['right'] },
