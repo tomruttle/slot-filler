@@ -3,7 +3,7 @@
 export type SlotNameType = string;
 export type ThingNameType = string;
 
-export type SlotsType = { [slot: SlotNameType]: any };
+export type SlotsType<T> = { [slot: SlotNameType]: T };
 
 export type ThingType = {
   name: ThingNameType,
@@ -12,4 +12,4 @@ export type ThingType = {
 
 export type ThingsType = Array<ThingType>;
 
-declare export default (slots: SlotsType, things: ThingsType) => { [slot: SlotNameType]: ThingNameType };
+declare export default <T>(slots: SlotsType<T>, things: ThingsType) => { [slot: SlotNameType]: ThingNameType | T };
